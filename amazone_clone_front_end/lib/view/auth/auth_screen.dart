@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+
+class AuthScreen extends StatefulWidget {
+  static const routeName = '/auth-screen';
+  const AuthScreen({super.key});
+
+  @override
+  State<AuthScreen> createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends State<AuthScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Amazon Clone'),
+      ),
+      body: const Center(
+        child: Text('Amazon Clone'),
+      ),
+    );
+  }
+}
