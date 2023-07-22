@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-class GlobalVaribale {
+class GlobalVariables {
   static Color primaryColor = Colors.orange;
 }
