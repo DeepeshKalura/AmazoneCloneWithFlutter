@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'constant/global.dart';
 import 'router.dart';
+import 'view/auth/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,30 +11,37 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Amazon Clone',
       onGenerateRoute: (settings) => generateRoute(settings),
+      debugShowCheckedModeBanner: false,
+      title: 'Amazon Clone',
       theme: ThemeData(
+        primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-        ),
-        colorScheme: const ColorScheme.light(
-          primary: Colors.orange,
-        ),
+        colorScheme: ColorScheme.light(primary: GlobalVariables.primaryColor),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Amazon Clone'),
+          elevation: 0.0,
+          title: const Text("Amazon"),
+          centerTitle: true,
         ),
-        body: const Center(
-          child: Text('Amazon Clone'),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Hello Amazon"),
+              Builder(builder: (context) {
+                return ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AuthScreen.routeName);
+                    },
+                    child: const Text("Click Me"));
+              })
+            ],
+          ),
         ),
       ),
     );
